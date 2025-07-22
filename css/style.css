@@ -1,0 +1,387 @@
+/*css for whole html */
+*{
+    font-family: Georgia, Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    scroll-behavior: smooth;
+}
+
+/*css for boby tag */
+body{
+    padding: 0px;
+    margin:0;
+    height: 100%;
+    background-color: rgb(238, 237, 235);
+}
+
+/*css for header tag */
+header{
+    height: 40px;
+    margin: 0 auto;
+    width: 90%;
+    color: rgb(49, 54, 56);
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    
+}
+/*css icons used in above navigation bar*/
+.above-icon{
+    height: 15px;
+    width: auto ;
+    margin-top: 4px;
+    cursor: pointer;
+}
+/*css for the division that contains phone number and mail */
+.contact{
+    height: 20px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/*css for images used in social media link */
+.media-link{
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*css for navigation bar */
+nav{
+    background-color: white;
+    height: 65px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+/*css to make navbar sticky which is activated on scroll */
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+.sticky + main {
+    padding-top: 80px;
+}
+
+/*navgation Bar content*/
+.logo{  
+    padding-left: 80px;
+    height: 40px;
+    width: 300px;
+    align-items: center;
+}
+.logo img{
+    height: 40px;  
+    filter: brightness(0); 
+}
+.menu
+{
+    list-style-type: none;
+    align-items: center;
+}
+.menu ul li
+{
+    display: inline;
+}
+.menu  ul li a
+{
+    width: auto;
+    color: black;
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 30px;
+    &:hover{
+        background-color: orangered;
+        color: white;
+        transition: 0.3s ease-in-out;
+    }  
+}
+.search-cart-profile
+{
+    display: flex;
+    padding-right: 80px;
+    padding-left:50px ;
+    width: 250px;
+    justify-content: space-between;
+    align-items: center;
+}
+.search 
+{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: rgb(238, 238, 238);
+    border-radius: 25px;
+}
+.search img
+{
+    height: 20px;
+    margin-left: 15px;
+}
+
+.search input:focus{
+    outline: none;
+} 
+.search input[type="text"] 
+{
+    margin-left: 10px;
+    height: 35px;
+    width: 100px;
+    border: none;
+    border-radius:20px;
+    font-size: 14px;
+    background-color: rgb(238, 238, 238);
+}
+.menu-icon 
+{
+    height: 25px;    
+}
+.menu-icon:active{
+    background-color: orangered;
+    border-radius: 20px;
+}
+#cart{
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/*cart*/
+.cart{
+    display: none;
+    position: fixed;
+    align-items: top;
+    top: 0;
+    right: 0;
+    width: 350px;
+    min-height: 100vh;
+    background: #ffffff;
+    box-shadow: -5px 0 4px rgba(134, 128, 126, 0.1);
+    transition: 0.5s;
+    z-index: 1001;
+}
+#close{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background-color: rgb(49, 54, 56);
+    width: 30px;
+    color: white;
+    text-align: center;
+    border-radius: 30px;
+}
+#close:hover{
+    background-color: orange;
+    color: black;
+    transition: 0.2s ease-in-out;
+}
+#close:active{
+    background-color: red;
+}
+.cart-content{
+    top:0;
+    margin: 0 auto;
+}
+.cart-title{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+}
+.cart-box{
+    display: grid;
+    width: 80%;
+    grid-template-columns: 32% 50% 18%;
+    align-items: center;
+    gap: 8px;
+    margin: 16px;
+}
+.cart-img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    padding: 10px;
+}
+.detail-box{
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    row-gap: 10px;
+    left: 0;
+    align-self: flex-start;
+}
+.cart-product-title{
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.cart-price{
+    font-weight: 500;
+}
+.cart-quantity{
+    border: 1px solid rgb(78, 75, 75);
+    outline-color: #081C15;
+    text-align: center;
+    font-size: 15px;
+    width: 100px;
+}
+.cart-remove{
+    font-size: 14px;
+    margin-right: 20px;
+    color: #081C15;
+    cursor: pointer;
+    width: 60px;
+    height: 30px;
+}
+.total{
+    position: fixed;
+    bottom: 10px;
+    height: 40px;
+    width: 350px;
+    display: flex;
+    padding: 10px;
+    background-color: rgb(49, 54, 56);
+    align-items: center;
+}  
+.total:hover {
+    background-color: orange;
+    transition: 0.2s ease-in-out;
+} 
+.total:active{
+    background-color: red;
+} 
+
+.total-price{
+    margin-right: 50px;
+    color: white;
+}
+.total-price:hover {
+    background-color: orange;
+}
+
+.checkout-btn{
+    color: #f8f8f8;
+    width: 70%;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#cart-close{
+    position: absolute;
+    top: 16px;
+    right: 5px;
+    font-size: 16px;
+    color:rgb(49, 54, 56);
+    cursor: pointer;
+}
+
+
+
+/* footer css*/
+footer{
+    color: rgb(49, 54, 56);
+}
+.main-footer{
+    background-color: white;
+    padding: 0px 60px;
+    height: 350px;
+    display: flex;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    align-items: center;
+}   
+.sign-up
+{
+    width: 30%;
+    height: 200px;
+    padding-right: 20px;
+    margin-bottom: 40px;
+    
+    input:focus{
+        outline: none;
+    }   
+}
+.sign-up input[type="text"]{
+    height: 40px;
+    width: 400px;
+    background-color: white;
+    border: 2px solid rgb(49, 54, 56);
+    font-size: medium;
+    padding-left: 20px;
+}
+.link-menu
+{
+    height: 200px;
+    width: 70%;
+    border-left: 2px solid rgb(49, 54, 56);
+}
+.link-menu table
+{
+    font-size: large;
+    width: 1000px;
+    margin: 10px auto;
+}     
+.link-menu tr{
+        text-align: left;
+        height: 40px;
+    }
+.link-menu td{
+        width: 250px;
+    }
+
+.copyright
+{
+    height: 20px;
+    text-align: center;
+    margin-bottom: 5px;
+    color: rgb(49, 54, 56);
+}
+footer button{
+    height: 45px;
+    width: 300px;
+    background-color: rgb(49, 54, 56);
+    color: white;
+    border: 1px solid black;
+    font-size: 15px;
+    &:hover{
+        background-color: orangered;
+        transition: 0.2.5s ease-out;
+        font-size: 16px;
+        color: black;
+    }
+}
+
+/* css for got to top button*/
+#top{
+    position: fixed;
+    padding: 0;
+    bottom: 50px;
+    right: 10px;
+    height: 40px;
+    width: 100px;
+    z-index: 10;
+    border: 1px solid black;
+    background-color: white;
+    rotate: -90deg;
+    color: black;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 18px; 
+    display: none;
+}
+  
+#top:hover {
+    background-color: rgb(49, 54, 56); 
+    color: white;
+    border-color: white;
+    transition: 0.2s ease-in-out;
+}
