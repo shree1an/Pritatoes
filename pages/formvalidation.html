@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="just basic html">
+    <meta name="keyword" content="semantic">
+    <meta name="author" content="Ankit Rokka">
+    <meta http-equiv="refresh" content="50">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Styling for the popup after signing up and signing in*/
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px; 
+    color: #333; 
+    max-width: 300px; 
+}
+
+.closePopupBtn {
+    background: orangered;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Styling for the popup message */
+#popupMessage {
+    margin-bottom: 15px;
+
+
+}
+
+/* Styling for the buttons in the popup */
+#closePopupBtn,
+#returnHomeBtn {
+    background: orangered;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#closePopupBtn:hover,
+#returnHomeBtn:hover {
+    background: darkred; 
+}
+
+
+        /* Styling for the body */
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 65vh;
+        }
+
+        /* Styling for the main form container */
+        .form-box {
+            width: 90%;
+            max-width: 450px;
+            background: white;
+            border: 1px solid black;
+            color: #3c003c;
+            padding: 50px 60px 70px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        /* Styling for the form title */
+        .form-box h1 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: orangered;
+            position: relative;
+        }
+
+        
+        .form-box h1::after {
+            content: '';
+            width: 30px;
+            height: 4px;
+            border-radius: 3px;
+            background: orangered;
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Styling for input fields and their container */
+        .input-field {
+            background: #f5f5f5;
+            margin: 15px 0;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            border: 1px solid black;
+            max-height: 65px;
+            transition: max-height 0.5s;
+            overflow: hidden;
+        }
+
+        main input {
+            width: 100%;
+            background: transparent;
+            border: 0;
+            outline: 0;
+            padding: 18px 15px;
+            color: #3c003c;
+        }
+
+        main form p {
+            text-align: left;
+            font-size: 13px;
+            color: #3c003c;
+        }
+
+        
+        main form p a {
+            text-decoration: none;
+            color: orangered; 
+            font-weight: bold;
+        }
+
+        /* Styling for buttons and their container */
+        .btn-field {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn-field button {
+            flex-basis: 48%;
+            background: orangered; 
+            color: #fff;
+            height: 40px;
+            border-radius: 30px;
+            border: 1px solid black;
+            outline: 0;
+            cursor: pointer;
+            transition: background 0.5s;
+            font-size: 16px;
+        }
+
+        .btn-field button.disable {
+            background: #eaeaea;
+            color: #555;
+            cursor: not-allowed;
+        }
+
+        .btn-field button:hover {
+            background: orangered; 
+        }
+
+        /* Styling for the input  */
+        .input-group {
+            height: 280px;
+        }
+    </style>
+    <title>Sign Up/ Sign In</title>
+</head>
+<body>
+    <!--header division for above navbar-->
+    <header>
+        <!--division to divide container for contact details-->
+        <div class="contact">
+            <p><img src="../images/call.png" alt="call" class="above-icon">    +977 9808207244</p>
+            <p class="space"><img src="../images/mail.png" alt="mail" class="above-icon">  printatoes@islingtoncollege.edu.np</p>
+        </div>  
+        <!--division to divide container for social media details--> 
+        <div class="media-link">
+            <a href="https://facebook.com"><img src="../images/facebook.png" alt="facebook" class="above-icon"></a>
+            <a href="https://instagram.com"><img src="../images/instagram.png" alt="facebook" class="above-icon space"></a>
+            <a href="https://twitter.com"><img src="../images/x.png" alt="facebook" class="above-icon space"></a>
+            <a href="https://linkedin.com"><img src="../images/linkedin.png" alt="facebook" class="above-icon space"></a>
+        </div> 
+    </header>  
+    <!--navigation tag for navigation bar section-->  
+    <nav id="navbar">
+        <!--logo container-->
+        <div class="logo">
+            <a href="index.html"><img src="../images/logo1.png" alt="star"></a>
+        </div>
+        <!--menu container-->
+        <div class="menu">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="product.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="aboutus.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+            </ul>
+        </div>
+        <!-- division which contains searchbar, cart and profile-->
+        <div class="search-cart-profile">
+            <div class="search">
+                <img src="../images/search.png" alt="search">
+                <input placeholder="Printers..." type="text">
+            </div>
+            <div id="cart">
+                <img src="../images/cart.png" alt="cart" class="menu-icon">
+            </div>
+            <a href="formvalidation.html"><img src="../images/user.png" id="profile" alt="profile" class="menu-icon"></a>                   
+        </div>
+    </nav>
+
+    <!--div for cart sidebar-->
+    <div class="cart">
+        <h2 class="cart-title">Your Cart</h2>
+        <div id="close">X</div>
+        <hr>
+        <div class="cart-content">
+            <!--product image and details-->
+            <div class="cart-box">
+                <img src="../images/printer1.png" class="cart-img">
+                <div class="detail-box">
+                    <div class="cart-product-title">HP Printer</div>
+                    <div class="cart-price">33000</div>
+                    <input type="number" value="1" class="cart-quantity">
+                </div>
+                <button class="cart-remove">remove</button>
+            </div>
+        </div>
+        <hr width="80%">
+        <div class="total">
+            <div class="checkout-btn">CHECKOUT</div>
+            <div class="total-price">0</div>  
+        </div>
+    </div>
+    <main>
+        <!-- Popup message container -->
+        <div id="popup" class="popup">
+            <p id="popupMessage"></p>
+            <button id="closePopupBtn">Close</button>
+            <button id="returnHomeBtn" onclick="returnToHome()">Return to Home Screen</button>
+        </div>
+
+
+    <!-- Main form container -->
+    <div class="form-box">
+        <h1 id="title">Sign Up</h1>
+        <form id="signupForm">
+            <!-- Input group container -->
+            <div class="input-group">
+                <div class="input-field" id="nameField">
+                    <input type="text" placeholder="Name">
+                </div>
+                <div class="input-field">
+                    <input type="email" placeholder="Email">
+                </div>
+                <div class="input-field">
+                    <input type="password" placeholder="Password">
+                </div>
+                <!-- Link for password recovery -->
+                <p>Forgot password? <a href="#">Click Here</a></p>
+            </div>
+            <!-- Buttons for Sign Up and Sign In -->
+            <div class="btn-field">
+                <button type="button" id="signupBtn">Sign up</button>
+                <button type="button" id="signinBtn" class="disable">Sign in</button>
+            </div>
+        </form>
+    </div>
+    </main>
+    <!--footer section-->
+    <footer>
+        <div class="main-footer">
+
+            <!--creating connecting form with pritatoes-->
+            <div class="sign-up">
+                <p>CONNECT WITH PRINTERS</p>
+                <h2>Sign up for 20% off in your first order</h2>
+                <input type="text" placeholder="Enter Email Address" name="email" id="Sign-up">
+                <br>
+                <br>
+                <button class="connect"type="submit">Connect ></button>
+            </div>
+
+            <!--division for other footer menu-->
+            <div class="link-menu">
+                <!--using table to create footer menu-->
+                <table>
+                    <tr>
+                        <th>SHOP</th>
+                        <th>PRITATOES</th>
+                        <th>FOLLOW US</th>
+                        <th>CONTACT</th>
+                    </tr>
+                    <tr>
+                        <td>All Products</td>
+                        <td>About</td>
+                        <td>Facebook</td>
+                        <td>Kamal Pokhari, Kathmandu</td>
+                    </tr>
+                    <tr>
+                        <td>Best Sellers</td>
+                        <td>Blog</td>
+                        <td>Instagram</td>
+                        <td>+977 98xxxxxxxx</td>
+                    </tr>
+                    <tr>
+                        <td>Flash Sale</td>
+                        <td>Careers</td>
+                        <td>Twiter</td>
+                        <td>pritatoes@islingtoncollege.inc.np</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <!--below footer copyright division-->
+        <div class="copyright">
+            <p>Copyright &#169; 2023 printatoes Inc. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!--button to go to top onclicking activate a function in javascript-->
+    <button id="top" title="Go to top">Top---></button>
+
+    <!--linking javascript for sticky navbar -->
+    <script src="js/sticky.js"></script>
+
+    <!--linking javascript for cart display-->
+    <script src="js/cart.js"></script>
+
+    <!-- JavaScript for toggle functionality -->
+    <script>
+        let signupBtn = document.getElementById("signupBtn");
+        let signinBtn = document.getElementById("signinBtn");
+        let nameField = document.getElementById("nameField");
+        let title = document.getElementById("title");
+        let popup = document.getElementById("popup");
+        let popupMessage = document.getElementById("popupMessage");
+        let closePopupBtn = document.getElementById("closePopupBtn");
+
+
+    // Event handler for Sign In button
+    signinBtn.onclick = function () {
+    // validation to check if the email and password fields are not empty
+    let emailField = document.querySelector('input[type="email"]');
+    let passwordField = document.querySelector('input[type="password"]');
+
+    if (emailField.value.trim() !== "" && passwordField.value.trim() !== "") {
+        nameField.style.maxHeight = "0";
+        title.innerHTML = "Sign In";
+        signupBtn.classList.add("disable");
+        signinBtn.classList.remove("disable");
+        showPopup("Sign In Successful!");
+    } else {
+        showPopup("Please enter valid email and password.");
+    }
+}
+
+// Event handler for Sign Up button
+signupBtn.onclick = function () {
+
+    nameField.style.maxHeight = "0";
+    title.innerHTML = "Sign In";
+    signupBtn.classList.add("disable");
+    signinBtn.classList.remove("disable");
+    showPopup("Sign In Successful!");
+}
+
+
+// Function to show the popup
+function showPopup(message) {
+    popupMessage.innerHTML = message;
+    popup.style.display = "block";
+
+    // To hide the popup after a short delay
+    setTimeout(function () {
+        popup.style.display = "none";
+    }, 3000); 
+}
+
+        // Event handler for closing the popup
+        closePopupBtn.onclick = function () {
+            popup.style.display = "none";
+        }
+
+        // Function to return to home screen
+        function returnToHome() {
+            window.location.href="../index.html"; //yeta homepage ko link haala hai
+        }
+    </script>
+</body>
+</html>
